@@ -6,3 +6,9 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+.github
+out
+.idea
+debug1
+Design Patern Sample.iml
+OpenSSH_8.1p1,
