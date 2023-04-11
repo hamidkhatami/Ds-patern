@@ -18,6 +18,10 @@ public final class SerializeSingleton {
     return SingletonHelper.instance;
   }
 
+  protected Object readResolve(){
+      return myInstance();
+  }
+
   public void hello(){
     System.out.println("Hello World From Serial Singleton");
   }
