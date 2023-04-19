@@ -3,19 +3,14 @@ package main.java.com;
 import main.java.com.pattern.Criteria;
 import main.java.com.pattern.FemaleFilter;
 import main.java.com.pattern.Person;
-import main.java.com.singletone.LazySingletonInstance;
-import main.java.com.singletone.MemoryUseSingletonInstance;
-import main.java.com.singletone.SerializeSingleton;
-import main.java.com.singletone.SingletonInstance;
-import main.java.com.singletone.StaticBlockInstance;
-import main.java.com.singletone.ThreadSafeSingletonInstance;
+import main.java.com.singletone.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void SingletonMain(String[] args) {
+    public static void main(String[] args) {
         SingletonInstance singletonInstance = SingletonInstance.mySingleton();
         singletonInstance.hello();
 
@@ -50,10 +45,21 @@ public class Main {
         SerializeSingleton serializeSingleton = SerializeSingleton.myInstance();
         serializeSingleton.hello();
 
+        System.out.println();
+        System.out.println("--------------Inner class helper------------------");
+        System.out.println();
 
+        InnerClassHelperSingleton innerClassHelperSingleton = InnerClassHelperSingleton.instance();
+        innerClassHelperSingleton.hello();
+
+        System.out.println();
+        System.out.println("--------------Enum------------------");
+        System.out.println();
+
+        EnumSingleton.INSTANCE.hello();
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         List<Person> persons = new ArrayList<>();
         Person p1 = new Person("hamid", "khatami", "male");
         Person p2 = new Person("soheil", "jahangiri", "male");
