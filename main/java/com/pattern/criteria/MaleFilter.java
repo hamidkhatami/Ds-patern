@@ -1,4 +1,4 @@
-package main.java.com.pattern;
+package main.java.com.pattern.criteria;
 
 import java.util.ArrayList;
 import java.util.List;

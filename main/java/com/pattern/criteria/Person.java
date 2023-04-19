@@ -1,4 +1,4 @@
-package main.java.com.pattern;
+package main.java.com.pattern.criteria;
 
 public class Person {
     private String name;

@@ -1,16 +1,15 @@
 package main.java.com;
 
-import main.java.com.pattern.Criteria;
-import main.java.com.pattern.FemaleFilter;
-import main.java.com.pattern.Person;
+import main.java.com.pattern.criteria.Criteria;
+import main.java.com.pattern.criteria.FemaleFilter;
+import main.java.com.pattern.criteria.Person;
 import main.java.com.singletone.*;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main3(String[] args) {
         SingletonInstance singletonInstance = SingletonInstance.mySingleton();
         singletonInstance.hello();
 
@@ -59,7 +58,7 @@ public class Main {
         EnumSingleton.INSTANCE.hello();
     }
 
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         List<Person> persons = new ArrayList<>();
         Person p1 = new Person("hamid", "khatami", "male");
         Person p2 = new Person("soheil", "jahangiri", "male");
