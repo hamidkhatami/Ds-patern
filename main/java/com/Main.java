@@ -3,13 +3,13 @@ package main.java.com;
 import main.java.com.pattern.criteria.Criteria;
 import main.java.com.pattern.criteria.FemaleFilter;
 import main.java.com.pattern.criteria.Person;
-import main.java.com.singletone.*;
+import main.java.com.pattern.singletone.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main3(String[] args) {
+    public static void main2(String[] args) {
         SingletonInstance singletonInstance = SingletonInstance.mySingleton();
         singletonInstance.hello();
 

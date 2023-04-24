@@ -1,4 +1,4 @@
-package main.java.com.singletone;
+package main.java.com.pattern.singletone;
 
 public class ThreadSafeSingletonInstance {
 
