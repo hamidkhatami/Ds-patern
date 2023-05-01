@@ -1,4 +1,4 @@
-package main.java.com.singletone;
+package main.java.com.pattern.singletone;
 
 //Simple Singleton without any resources
 public class SingletonInstance {
