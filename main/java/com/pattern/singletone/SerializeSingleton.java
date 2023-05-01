@@ -5,7 +5,7 @@ package main.java.com.pattern.singletone;
  * @version 1.0 2023.0409
  * @since 1.0
  */
-public final class SerializeSingleton {
+public  class SerializeSingleton {
   private static final long serialVersionUID = -7604766932017737115L;
 
   private SerializeSingleton() {}
