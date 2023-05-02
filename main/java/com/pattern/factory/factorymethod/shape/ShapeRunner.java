@@ -5,8 +5,5 @@ public class ShapeRunner {
         ShapeFactory shapeFactory=new ShapeFactory();
         Shape shape= shapeFactory.getShape("Circle");
         shape.draw();
-
-
-
     }
 }
