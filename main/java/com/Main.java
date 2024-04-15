@@ -13,6 +13,8 @@ public class Main {
         SingletonInstance singletonInstance = SingletonInstance.mySingleton();
         singletonInstance.hello();
 
+
+
         System.out.println("-------------Simple -------------------");
         System.out.println("              ");
 
