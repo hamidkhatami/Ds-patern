@@ -7,7 +7,7 @@ import java.sql.Connection;
  * @version 1.0 2024.0416
  * @since 1.0
  */
-public  class OracleHelper {
+public class OracleHelper {
     public static Connection getOracleDBConnection(){
     		//get Oracle DB connection using connection parameters
     		return null;
