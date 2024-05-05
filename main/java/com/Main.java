@@ -1,5 +1,9 @@
 package main.java.com;
 
+import main.java.com.pattern.composite.Circle;
+import main.java.com.pattern.composite.Drawing;
+import main.java.com.pattern.composite.Shape;
+import main.java.com.pattern.composite.Triangle;
 import main.java.com.pattern.criteria.Criteria;
 import main.java.com.pattern.criteria.FemaleFilter;
 import main.java.com.pattern.criteria.Person;
@@ -103,7 +107,7 @@ public class Main {
 
     }
 
-    public static void main(String[] args) throws CloneNotSupportedException {
+    public static void main32(String[] args) throws CloneNotSupportedException {
         Employees emps = new Employees();
         emps.loadData();
 
@@ -121,6 +125,25 @@ public class Main {
         System.out.println("emps List: " + emps.getEmps());
         System.out.println("empsNew List: " + empsCloneAdd);
         System.out.println("empsNew1 List: " + empsCloneRem);
+
+    }
+
+    public static void main(String[] args) {
+        Shape tri = new Triangle();
+                Shape tri1 = new Triangle();
+                Shape cir = new Circle();
+
+                Drawing drawing = new Drawing();
+                drawing.add(tri1);
+                drawing.add(tri1);
+                drawing.add(cir);
+
+                drawing.draw("Red");
+
+                drawing.clear();
+                drawing.add(tri);
+                drawing.add(cir);
+                drawing.draw("Green");
 
     }
 }
