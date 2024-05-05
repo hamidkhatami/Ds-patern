@@ -3,8 +3,12 @@ package main.java.com;
 import main.java.com.pattern.criteria.Criteria;
 import main.java.com.pattern.criteria.FemaleFilter;
 import main.java.com.pattern.criteria.Person;
+import main.java.com.pattern.facade.HelperFacade;
+import main.java.com.pattern.facade.MySqlHelper;
+import main.java.com.pattern.facade.OracleHelper;
 import main.java.com.pattern.singletone.*;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +64,7 @@ public class Main {
         EnumSingleton.INSTANCE.hello();
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         List<Person> persons = new ArrayList<>();
         Person p1 = new Person("hamid", "khatami", "male");
         Person p2 = new Person("soheil", "jahangiri", "male");
@@ -80,4 +84,21 @@ public class Main {
         );
 
     }
+    public static void main(String[] args) {
+        String tableName="Employee";
+
+       		//generating MySql HTML report and Oracle PDF report without using Facade
+       		Connection con = MySqlHelper.getMySqlDBConnection();
+       		MySqlHelper mySqlHelper = new MySqlHelper();
+       		mySqlHelper.generateMySqlHTMLReport(tableName, con);
+
+       		Connection con1 = OracleHelper.getOracleDBConnection();
+       		OracleHelper oracleHelper = new OracleHelper();
+       		oracleHelper.generateOraclePDFReport(tableName, con1);
+
+       		//generating MySql HTML report and Oracle PDF report using Facade
+       		HelperFacade.generateReport(HelperFacade.DBTypes.MYSQL, HelperFacade.ReportTypes.HTML, tableName);
+       		HelperFacade.generateReport(HelperFacade.DBTypes.ORACLE, HelperFacade.ReportTypes.PDF, tableName);
+
+        }
 }
