@@ -6,6 +6,7 @@ import main.java.com.pattern.criteria.Person;
 import main.java.com.pattern.facade.HelperFacade;
 import main.java.com.pattern.facade.MySqlHelper;
 import main.java.com.pattern.facade.OracleHelper;
+import main.java.com.pattern.prototype.Employees;
 import main.java.com.pattern.singletone.*;
 
 import java.sql.Connection;
@@ -16,7 +17,6 @@ public class Main {
     public static void main3(String[] args) {
         SingletonInstance singletonInstance = SingletonInstance.mySingleton();
         singletonInstance.hello();
-
 
 
         System.out.println("-------------Simple -------------------");
@@ -84,21 +84,43 @@ public class Main {
         );
 
     }
-    public static void main(String[] args) {
-        String tableName="Employee";
 
-       		//generating MySql HTML report and Oracle PDF report without using Facade
-       		Connection con = MySqlHelper.getMySqlDBConnection();
-       		MySqlHelper mySqlHelper = new MySqlHelper();
-       		mySqlHelper.generateMySqlHTMLReport(tableName, con);
+    public static void main21(String[] args) {
+        String tableName = "Employee";
 
-       		Connection con1 = OracleHelper.getOracleDBConnection();
-       		OracleHelper oracleHelper = new OracleHelper();
-       		oracleHelper.generateOraclePDFReport(tableName, con1);
+        //generating MySql HTML report and Oracle PDF report without using Facade
+        Connection con = MySqlHelper.getMySqlDBConnection();
+        MySqlHelper mySqlHelper = new MySqlHelper();
+        mySqlHelper.generateMySqlHTMLReport(tableName, con);
 
-       		//generating MySql HTML report and Oracle PDF report using Facade
-       		HelperFacade.generateReport(HelperFacade.DBTypes.MYSQL, HelperFacade.ReportTypes.HTML, tableName);
-       		HelperFacade.generateReport(HelperFacade.DBTypes.ORACLE, HelperFacade.ReportTypes.PDF, tableName);
+        Connection con1 = OracleHelper.getOracleDBConnection();
+        OracleHelper oracleHelper = new OracleHelper();
+        oracleHelper.generateOraclePDFReport(tableName, con1);
 
-        }
+        //generating MySql HTML report and Oracle PDF report using Facade
+        HelperFacade.generateReport(HelperFacade.DBTypes.MYSQL, HelperFacade.ReportTypes.HTML, tableName);
+        HelperFacade.generateReport(HelperFacade.DBTypes.ORACLE, HelperFacade.ReportTypes.PDF, tableName);
+
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Employees emps = new Employees();
+        emps.loadData();
+
+        //Use the clone method to get the Employee object
+        Employees empsNew = (Employees) emps.clone();
+        Employees empsNew1 = (Employees) emps.clone();
+
+        List<String> empsCloneAdd = empsNew.getEmps();
+        empsCloneAdd.add("john");
+
+
+        List<String> empsCloneRem = empsNew1.getEmps();
+        empsCloneRem.remove("Pankaj");
+
+        System.out.println("emps List: " + emps.getEmps());
+        System.out.println("empsNew List: " + empsCloneAdd);
+        System.out.println("empsNew1 List: " + empsCloneRem);
+
+    }
 }
